@@ -6,6 +6,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { appInfo } from "@/app-info";
 import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
@@ -26,7 +27,19 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "TanStack Start Starter",
+				title: appInfo.name,
+			},
+			{
+				name: "description",
+				content: appInfo.description,
+			},
+			{
+				name: "og:title",
+				content: appInfo.name,
+			},
+			{
+				name: "og:description",
+				content: appInfo.description,
 			},
 		],
 		links: [

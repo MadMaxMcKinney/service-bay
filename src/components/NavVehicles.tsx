@@ -1,4 +1,4 @@
-import { ChevronRight, type LucideIcon, Plus } from "lucide-react";
+import { type LucideIcon, Plus } from "lucide-react";
 
 import {
 	Collapsible,
@@ -17,32 +17,38 @@ import {
 	SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
-export function NavVehicles({
-	items,
-}: {
-	items: {
-		title: string;
-		url: string;
-		icon?: LucideIcon;
-		isActive?: boolean;
-		items?: {
-			title: string;
-			url: string;
-		}[];
-	}[];
-}) {
+interface NavVehiclesProps {
+	items: NavVehicleItem[];
+	onAddVehicle?: () => void;
+}
+
+interface NavVehicleItem {
+	title: string;
+	url: string;
+	icon?: LucideIcon;
+	isActive?: boolean;
+}
+
+export function NavVehicles({ items, onAddVehicle }: NavVehiclesProps) {
+	function handleAddVehicle() {
+		if (onAddVehicle) {
+			onAddVehicle();
+		}
+	}
 	return (
 		<SidebarGroup>
 			<SidebarGroupLabel>Vehicles</SidebarGroupLabel>
-			<SidebarGroupAction title="Add Project">
+			<SidebarGroupAction title="Add Vehicle" onClick={handleAddVehicle}>
 				<Plus /> <span className="sr-only">Add Vehicle</span>
 			</SidebarGroupAction>
 			<SidebarMenu>
 				{items.map((item) => (
 					<SidebarMenuItem key={item.title}>
-						<SidebarMenuButton tooltip={item.title}>
-							{item.icon && <item.icon />}
-							<span>{item.title}</span>
+						<SidebarMenuButton asChild isActive={item.isActive}>
+							<a href={item.url}>
+								{item.icon && <item.icon />}
+								<span>{item.title}</span>
+							</a>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				))}
