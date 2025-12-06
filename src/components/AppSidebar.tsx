@@ -1,16 +1,18 @@
+import { url } from "inspector";
 import {
 	BookOpen,
 	Car,
 	Frame,
+	House,
+	ScanBarcode,
 	ScanBarcodeIcon,
 	Settings2,
 	SquareTerminal,
 	Wrench,
 } from "lucide-react";
-import * as React from "react";
-
 import { NavMain } from "@/components/NavMain";
 import { NavTools } from "@/components/NavTools";
+import { NavVehicles } from "@/components/NavVehicles";
 import {
 	Sidebar,
 	SidebarContent,
@@ -21,55 +23,26 @@ import {
 	SidebarRail,
 } from "@/components/ui/sidebar";
 
-// This is sample data.
 const data = {
 	navMain: [
 		{
-			title: "Vehicles",
-			url: "#",
+			title: "Home",
+			url: "/",
+			icon: House,
+		},
+	],
+	navVehicles: [
+		{
+			title: "Test Vehicle",
+			url: "/test",
 			icon: Car,
-			isActive: true,
-			items: [
-				{
-					title: "Test",
-					url: "/test",
-				},
-			],
-		},
-		{
-			title: "OBD2 Codes",
-			url: "#",
-			icon: ScanBarcodeIcon,
-		},
-		{
-			title: "Settings",
-			url: "#",
-			icon: Settings2,
-			items: [
-				{
-					title: "General",
-					url: "#",
-				},
-				{
-					title: "Team",
-					url: "#",
-				},
-				{
-					title: "Billing",
-					url: "#",
-				},
-				{
-					title: "Limits",
-					url: "#",
-				},
-			],
 		},
 	],
 	tools: [
 		{
 			name: "OBD2 Code Lookup",
 			url: "#",
-			icon: Frame,
+			icon: ScanBarcode,
 		},
 	],
 };
@@ -93,9 +66,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>
+				<NavMain items={data.navMain} />
 			</SidebarHeader>
 			<SidebarContent>
-				<NavMain items={data.navMain} />
+				<NavVehicles items={data.navVehicles} />
 				<NavTools tools={data.tools} />
 			</SidebarContent>
 			<SidebarRail />
