@@ -5,6 +5,12 @@ dist-ssr
 *.local
 count.txt
 .env
+.env.*
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
 .nitro
 .tanstack
 .wrangler
