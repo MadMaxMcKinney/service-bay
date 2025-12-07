@@ -11,10 +11,8 @@
     "lint": "biome lint",
     "check": "biome check",
     "db:generate": "drizzle-kit generate",
-    "db:migrate:dev": "NODE_ENV=development drizzle-kit migrate",
-    "db:migrate:prod": "NODE_ENV=production drizzle-kit migrate",
-    "db:studio:dev": "NODE_ENV=development drizzle-kit studio",
-    "db:studio:prod": "NODE_ENV=production drizzle-kit studio"
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
