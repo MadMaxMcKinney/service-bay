@@ -58,7 +58,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 							className="data-[slot=sidebar-menu-button]:p-1.5!"
 						>
 							<a href="/">
-								<Wrench className="size-5" />
+								{/* <Wrench className="size-5" /> */}
 								<span className="text-base font-semibold">
 									Service Bay
 								</span>

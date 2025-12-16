@@ -15,9 +15,9 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@base-ui/react": "^1.0.0",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@libsql/client": "^0.15.15",
-    "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -39,6 +39,7 @@
     "drizzle-orm": "^0.45.0",
     "lucide-react": "^0.544.0",
     "nitro": "latest",
+    "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwind-merge": "^3.0.2",
